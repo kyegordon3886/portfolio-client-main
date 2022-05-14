@@ -3,13 +3,18 @@ import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
-import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
+// import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
-import SignUp from './components/auth/SignUp'
-import SignIn from './components/auth/SignIn'
-import SignOut from './components/auth/SignOut'
-import ChangePassword from './components/auth/ChangePassword'
+import AboutMe from './components/Pages/AboutMe'
+import Skills from './components/Pages/Skills'
+import ContactMe from './components/Pages/ContactMe'
+import MyResume from './components/Pages/Resume'
+import ProjectShowcase from './components/Pages/ProjectShowcase'
+// import SignUp from './components/auth/SignUp'
+// import SignIn from './components/auth/SignIn'
+// import SignOut from './components/auth/SignOut'
+// import ChangePassword from './components/auth/ChangePassword'
 
 class App extends Component {
   constructor (props) {
@@ -56,7 +61,7 @@ class App extends Component {
           />
         ))}
 	      <main className='container'>
-	        <Route
+	        {/* <Route
             path='/sign-up'
             render={() => (
               <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -67,8 +72,38 @@ class App extends Component {
             render={() => (
               <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
             )}
+          /> */}
+          <Route
+            path='/about'
+            render={() => (
+              <AboutMe msgAlert={this.msgAlert} setUser={this.setUser} />
+            )}
           />
-          <AuthenticatedRoute
+          <Route
+            path='/skills'
+            render={() => (
+              <Skills msgAlert={this.msgAlert} setUser={this.setUser} />
+            )}
+          />
+          <Route
+            path='/contact'
+            render={() => (
+              <ContactMe msgAlert={this.msgAlert} setUser={this.setUser} />
+            )}
+          />
+          <Route
+            path='/resume'
+            render={() => (
+              <MyResume msgAlert={this.msgAlert} setUser={this.setUser} />
+            )}
+          />
+          <Route
+            path='/my-works'
+            render={() => (
+              <ProjectShowcase msgAlert={this.msgAlert} setUser={this.setUser} />
+            )}
+          />
+          {/* <AuthenticatedRoute
             user={user}
             path='/sign-out'
             render={() => (
@@ -85,7 +120,7 @@ class App extends Component {
             render={() => (
               <ChangePassword msgAlert={this.msgAlert} user={user} />
             )}
-          />
+          /> */}
         </main>
       </Fragment>
     )
